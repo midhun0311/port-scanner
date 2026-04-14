@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Port Scanner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🔐 Advanced Port Scanner</h1>
+                <p>Fast & Efficient Network Port Scanning Tool</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Scan Configuration Panel -->
+            <section class="config-panel">
+                <h2>📋 Scan Configuration</h2>
+                
+                <div class="form-group">
+                    <label for="target">Target (IP or Domain):</label>
+                    <input type="text" id="target" placeholder="e.g., google.com or 192.168.1.1" value="">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="startPort">Start Port:</label>
+                        <input type="number" id="startPort" min="1" max="65535" value="1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="endPort">End Port:</label>
+                        <input type="number" id="endPort" min="1" max="65535" value="1000">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="timeout">Timeout (ms):</label>
+                        <input type="number" id="timeout" min="50" max="5000" value="200">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="threads">Threads:</label>
+                        <select id="threads">
+                            <option value="10">10 Threads</option>
+                            <option value="25">25 Threads</option>
+                            <option value="50" selected>50 Threads</option>
+                            <option value="100">100 Threads</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="preset-buttons">
+                    <h3>Quick Presets:</h3>
+                    <button class="preset-btn" onclick="setPreset('standard')">Standard (1-1000)</button>
+                    <button class="preset-btn" onclick="setPreset('common')">Common (Well-Known)</button>
+                    <button class="preset-btn" onclick="setPreset('all')">All Ports (1-65535)</button>
+                </div>
+
+                <button class="scan-btn" onclick="startScan()">🚀 Start Scan</button>
+            </section>
+
+            <!-- Progress Section -->
+            <section class="progress-section" id="progressSection" style="display: none;">
+                <h2>📊 Scan Progress</h2>
+                <div class="progress-info">
+                    <span id="progressText">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="scan-stats">
+                    <div class="stat">
+                        <span class="stat-label">Elapsed Time:</span>
+                        <span class="stat-value" id="elapsedTime">0s</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Ports Scanned:</span>
+                        <span class="stat-value" id="portScanned">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Open Ports:</span>
+                        <span class="stat-value" id="openPorts">0</span>
+                    </div>
+                </div>
+                <button class="cancel-btn" onclick="cancelScan()">⏹ Cancel Scan</button>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <h2>📈 Scan Results</h2>
+                
+                <div class="results-header">
+                    <div class="result-info">
+                        <p><strong>Target:</strong> <span id="resultTarget">-</span></p>
+                        <p><strong>Total Open Ports:</strong> <span id="totalOpenPorts">0</span></p>
+                        <p><strong>Scan Time:</strong> <span id="scanTime">0s</span></p>
+                    </div>
+                    <div class="export-buttons">
+                        <button class="export-btn" onclick="exportResults('txt')">📄 TXT</button>
+                        <button class="export-btn" onclick="exportResults('csv')">📊 CSV</button>
+                        <button class="export-btn" onclick="exportResults('json')">📋 JSON</button>
+                        <button class="export-btn" onclick="exportResults('html')">🌐 HTML</button>
+                    </div>
+                </div>
+
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th class="col-port">Port</th>
+                            <th class="col-status">Status</th>
+                            <th class="col-service">Service</th>
+                            <th class="col-banner">Banner / Version</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsTableBody">
+                        <!-- Results will be populated here -->
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Error Section -->
+            <section class="error-section" id="errorSection" style="display: none;">
+                <h2>❌ Error</h2>
+                <p id="errorMessage"></p>
+                <button class="reset-btn" onclick="resetScan()">↻ Try Again</button>
+            </section>
+
+            <!-- Info Section -->
+            <section class="info-section">
+                <h2>ℹ️ Quick Information</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Port Categories</h3>
+                        <ul>
+                            <li><strong>Well-Known:</strong> 1-1023</li>
+                            <li><strong>Registered:</strong> 1024-49151</li>
+                            <li><strong>Dynamic:</strong> 49152-65535</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Common Ports</h3>
+                        <ul>
+                            <li>22 - SSH</li>
+                            <li>80 - HTTP</li>
+                            <li>443 - HTTPS</li>
+                            <li>3306 - MySQL</li>
+                            <li>5432 - PostgreSQL</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Tips</h3>
+                        <ul>
+                            <li>Use lower timeout for faster scans</li>
+                            <li>Increase threads for speed</li>
+                            <li>Scan only necessary port ranges</li>
+                            <li>Always get proper authorization</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>🔒 <strong>Privacy Notice:</strong> This tool is for authorized network administration only. Unauthorized access to networks is illegal.</p>
+            <p>© 2024 Advanced Port Scanner | All Rights Reserved</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
