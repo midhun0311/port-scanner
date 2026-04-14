@@ -1,12 +1,12 @@
-# 🔐 Advanced Port Scanner - Complete Features Guide
+#  Advanced Port Scanner - Complete Features Guide
 
-## 📊 Feature Breakdown by Category
+## Feature Breakdown by Category
 
 ---
 
-## 🟢 BASIC FEATURES (0-30%) — MUST HAVE
+##  BASIC FEATURES (0-30%) — MUST HAVE
 
-### 1. Target Input ✅
+### 1. Target Input 
 **Purpose**: Accept user input for scanning targets
 
 **What it does**:
@@ -26,7 +26,7 @@ Resolved IP: 142.250.183.78
 
 ---
 
-### 2. Port Scanning ✅
+### 2. Port Scanning 
 **Purpose**: Scan specified port range
 
 **What it does**:
@@ -45,7 +45,7 @@ scanner.startScan();
 
 ---
 
-### 3. Open Port Detection ✅
+### 3. Open Port Detection 
 **Purpose**: Identify which ports are open
 
 **What it does**:
@@ -58,13 +58,13 @@ scanner.startScan();
 
 **Output**:
 ```
-✅ Port 80 OPEN
-✅ Port 443 OPEN
+ Port 80 OPEN
+ Port 443 OPEN
 ```
 
 ---
 
-### 4. Scan Completion Message ✅
+### 4. Scan Completion Message 
 **Purpose**: Notify user scan is complete
 
 **What it does**:
@@ -78,7 +78,7 @@ scanner.startScan();
 **Output**:
 ```
 =============================================
-✅ SCANNING COMPLETED
+ SCANNING COMPLETED
 =============================================
 Scan Time: 12.34 seconds
 Total Open Ports: 3
@@ -87,9 +87,9 @@ Total Open Ports: 3
 
 ---
 
-## 🟡 INTERMEDIATE FEATURES (30-60%) — IMPORTANT
+##  INTERMEDIATE FEATURES (30-60%) — IMPORTANT
 
-### 5. Service Detection ✅
+### 5. Service Detection 
 **Purpose**: Identify service running on each port
 
 **What it does**:
@@ -119,7 +119,7 @@ Port 443 OPEN - Service: HTTPS
 
 ---
 
-### 6. Port Range Selection ✅
+### 6. Port Range Selection 
 **Purpose**: Let users choose scanning range
 
 **What it does**:
@@ -139,7 +139,7 @@ Scanning ports 20-100...
 
 ---
 
-### 7. Scan Timer ✅
+### 7. Scan Timer 
 **Purpose**: Track scanning duration
 
 **What it does**:
@@ -158,7 +158,7 @@ Elapsed Time: 0:12
 
 ---
 
-### 8. Total Open Ports Count ✅
+### 8. Total Open Ports Count 
 **Purpose**: Summary of results
 
 **What it does**:
@@ -175,7 +175,7 @@ Total Open Ports: 5
 
 ---
 
-### 9. Host Information ✅
+### 9. Host Information 
 **Purpose**: Display target details
 
 **What it does**:
@@ -196,9 +196,9 @@ Timeout: 200ms
 
 ---
 
-## 🔴 ADVANCED FEATURES (60-85%) — STRONG RESUME
+##  ADVANCED FEATURES (60-85%) — STRONG RESUME
 
-### 10. Multi-Threading ✅
+### 10. Multi-Threading 
 **Purpose**: Parallel port scanning (10x faster)
 
 **What it does**:
@@ -228,7 +228,7 @@ All running simultaneously = super fast!
 
 ---
 
-### 11. Save Results to File ✅
+### 11. Save Results to File 
 **Purpose**: Export scan results
 
 **What it does**:
@@ -249,7 +249,7 @@ results_1712000000000.html
 
 ---
 
-### 12. Banner Grabbing ✅
+### 12. Banner Grabbing 
 **Purpose**: Detect service version/information
 
 **What it does**:
@@ -275,7 +275,7 @@ Port 22: OpenSSH 7.4 (old - update recommended)
 
 ---
 
-### 13. Timeout Handling ✅
+### 13. Timeout Handling 
 **Purpose**: Avoid hanging on slow connections
 
 **What it does**:
@@ -293,7 +293,7 @@ Port 22: OpenSSH 7.4 (old - update recommended)
 
 ---
 
-### 14. Scan Specific Ports ✅
+### 14. Scan Specific Ports 
 **Purpose**: Scan only important ports
 
 **What it does**:
@@ -309,9 +309,9 @@ Instead of: 1-65535
 
 ---
 
-## 🔥 PROFESSIONAL FEATURES (85-100%) — TOP-LEVEL
+##  PROFESSIONAL FEATURES (85-100%) — TOP-LEVEL
 
-### 15. GUI Interface ✅
+### 15. GUI Interface 
 **Purpose**: User-friendly graphical interface
 
 **What it does**:
@@ -336,7 +336,7 @@ Instead of: 1-65535
 
 ---
 
-### 16. Progress Bar ✅
+### 16. Progress Bar 
 **Purpose**: Visual scanning progress
 
 **What it does**:
@@ -357,7 +357,7 @@ Open Ports: 4
 
 ---
 
-### 17. Color Output ✅
+### 17. Color Output 
 **Purpose**: Visual status indicators
 
 **What it does**:
@@ -368,11 +368,11 @@ Open Ports: 4
 
 **CLI Output**:
 ```
-✅ Port 22 OPEN
-✅ Port 80 OPEN
-✅ Port 443 OPEN
-❌ Port 23 CLOSED
-❌ Port 25 CLOSED
+Port 22 OPEN
+ Port 80 OPEN
+ Port 443 OPEN
+ Port 23 CLOSED
+ Port 25 CLOSED
 ```
 
 **GUI Colors**:
@@ -382,7 +382,7 @@ Open Ports: 4
 
 ---
 
-### 18. Export to CSV ✅
+### 18. Export to CSV 
 **Purpose**: Excel/spreadsheet compatibility
 
 **Format**:
@@ -432,7 +432,7 @@ Port,Status,Service,Banner,Scan Date,Target
 
 ---
 
-### 20. OS Detection ✅
+### 20. OS Detection 
 **Purpose**: Identify target operating system
 
 **Methods**:
@@ -449,7 +449,7 @@ Port,Status,Service,Banner,Scan Date,Target
 
 ---
 
-## 🧠 BONUS FEATURES (Optional)
+##  BONUS FEATURES (Optional)
 
 ### 21. HTML Export
 **Purpose**: Beautiful reports
@@ -488,7 +488,7 @@ Dynamic: 49152-65535
 
 ---
 
-## 📊 Feature Comparison Table
+## Feature Comparison Table
 
 | Feature | CLI | GUI | Advanced |
 |---------|-----|-----|----------|
@@ -505,7 +505,7 @@ Dynamic: 49152-65535
 
 ---
 
-## 🎯 How Features Work Together
+##  How Features Work Together
 
 ```
 User Input
@@ -545,7 +545,7 @@ Export Options
 
 ---
 
-## 🚀 Performance Metrics
+##  Performance Metrics
 
 **System**: Intel i7, 8GB RAM, 100Mbps network
 
@@ -558,7 +558,7 @@ Export Options
 
 ---
 
-## 💾 File Size References
+##  File Size References
 
 - Source code: ~2 KB each
 - Compiled .class: ~3-5 KB each
@@ -567,7 +567,7 @@ Export Options
 
 ---
 
-## 🔐 Security Features
+##  Security Features
 
 - ✅ Input validation
 - ✅ Timeout protection
