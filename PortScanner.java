@@ -21,9 +21,7 @@ public class PortScanner {
         this.executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
     }
 
-    /**
-     * Main scanning method using multi-threading
-     */
+    
     public void startScan() {
         startTime = System.currentTimeMillis();
         System.out.println("\n" + "=".repeat(60));
@@ -53,9 +51,6 @@ public class PortScanner {
         displayResults();
     }
 
-    /**
-     * Scan individual port
-     */
     private void scanPort(int port) {
         try {
             Socket socket = new Socket();
@@ -71,20 +66,18 @@ public class PortScanner {
             
             socket.close();
         } catch (SocketTimeoutException e) {
-            // Port is closed or filtered
+            
         } catch (ConnectException e) {
-            // Port is closed
+            
         } catch (Exception e) {
-            // Other exceptions
+            
         }
         
         scannedPorts++;
         printProgress();
     }
 
-    /**
-     * Print scanning progress
-     */
+    
     private void printProgress() {
         int totalPorts = endPort - startPort + 1;
         int percentage = (scannedPorts * 100) / totalPorts;
@@ -99,9 +92,7 @@ public class PortScanner {
         System.out.print("\r" + bar.toString());
     }
 
-    /**
-     * Display final results
-     */
+   
     private void displayResults() {
         long endTime = System.currentTimeMillis();
         double scanTime = (endTime - startTime) / 1000.0;
@@ -128,9 +119,7 @@ public class PortScanner {
         }
     }
 
-    /**
-     * Resolve domain to IP address
-     */
+    
     public String getResolvedIP() {
         try {
             return InetAddress.getByName(target).getHostAddress();
@@ -140,16 +129,12 @@ public class PortScanner {
         }
     }
 
-    /**
-     * Get scan results
-     */
+   
     public List<PortResult> getResults() {
         return results;
     }
 
-    /**
-     * Port Result Class
-     */
+  
     public static class PortResult {
         public int port;
         public String status;
@@ -181,7 +166,7 @@ public class PortScanner {
                 System.out.println("Port " + port + " is OPEN");
                 socket.close();
             } catch (Exception e) {
-                // Port closed - do nothing
+                
             }
         }
 
